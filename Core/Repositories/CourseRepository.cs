@@ -1,6 +1,7 @@
 ﻿using Exams_App_C__.Net_Server.Data.DB;
 using Exams_App_C__.Net_Server.Data.Models;
 using Exams_App_C__.Net_Server.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -27,18 +28,18 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             return courseUserList;
         }
 
-        public async Task AddUserToCourse(string courseId, string userId)
+        public async Task<Course> AddUserToCourse(string courseId, string userId)
         {
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null)
             {
-                throw new ArgumentException("User not found", nameof(userId));
+                throw new ArgumentException("User not found");
             }
 
             var course = await dbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course == null)
             {
-                throw new ArgumentException("Course not found", nameof(courseId));
+                throw new ArgumentException("Course not found");
             }
             if (course.Users.Contains(user))
             {
@@ -46,12 +47,12 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             }
 
             course.Users.Add(user);
-            await dbContext.SaveChangesAsync();
+            return course;
         }
 
         public async Task RemoveUserFromCourse(string courseUserId, string userId)
         {
-            var userToDelete = await dbContext.Users.FirstOrDefaultAsync(u=>u.Id == userId);
+            var userToDelete = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (userToDelete == null)
             {
                 throw new ArgumentException("User not found", nameof(userId));

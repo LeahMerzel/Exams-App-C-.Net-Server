@@ -9,7 +9,7 @@ namespace Exams_App_C__.Net_Server.Controllers
     public class CourseController : GenericController<Course>
     {
         private readonly CourseRepository courseRepository;
-        public CourseController(CourseRepository courseRepository) :base(courseRepository) 
+        public CourseController(CourseRepository courseRepository) : base(courseRepository)
         {
             this.courseRepository = courseRepository;
         }
@@ -42,26 +42,23 @@ namespace Exams_App_C__.Net_Server.Controllers
 
 
         [HttpPost("add-user-to-course/{courseId},{userId}")]
-        public async Task<IActionResult> AddUserToCourse(string courseId, string userId)
+        public async Task<ActionResult<Course>> AddUserToCourse(string courseId, string userId)
         {
             try
             {
-                await courseRepository.AddUserToCourse( courseId,  userId);
-                return Ok("User added to the course successfully.");
+                var course = await courseRepository.AddUserToCourse(courseId, userId);
+                return Ok(course);
             }
             catch (ArgumentException ex)
             {
                 return BadRequest(ex.Message);
             }
-            catch (InvalidOperationException ex)
-            {
-                return Conflict(ex.Message);
-            }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return StatusCode(500, "An unexpected error occurred.");
             }
         }
+
 
         [HttpDelete("remove-user-from-course/{courseId},{userId}")]
         public async Task<IActionResult> RemoveUserFromCourse(string courseId, string userId)

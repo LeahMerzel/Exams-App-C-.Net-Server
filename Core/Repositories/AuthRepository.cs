@@ -97,7 +97,8 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
 
         public async Task<User?> GetUser(string UserId)
         {
-            return await dbContext.Users.SingleOrDefaultAsync(u => u.Id == UserId);
+            var user = await dbContext.Users.SingleOrDefaultAsync(u => u.Id == UserId);
+            return user;
         }
     }
 }

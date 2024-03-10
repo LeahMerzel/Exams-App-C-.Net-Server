@@ -30,10 +30,13 @@ namespace Exams_App_C__.Net_Server
             builder.Services.AddDbContext<ExamsDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("project")));
 
-            //CORS
             builder.Services.AddCors(options => options.AddPolicy(
-             "myPolicy", c => c.AllowAnyHeader().AllowAnyMethod().WithOrigins())
- );
+                "myPolicy",
+                builder => builder
+                    .AllowAnyOrigin()    // Allow requests from any origin
+                    .AllowAnyMethod()    // Allow any HTTP method (GET, POST, PUT, DELETE, etc.)
+                    .AllowAnyHeader()    // Allow any header to be sent
+            ));
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
