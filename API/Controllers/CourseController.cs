@@ -1,6 +1,7 @@
 ﻿using Exams_App_C__.Net_Server.Core.Repositories;
 using Exams_App_C__.Net_Server.Data.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Exams_App_C__.Net_Server.Controllers
 {
@@ -15,7 +16,7 @@ namespace Exams_App_C__.Net_Server.Controllers
         }
 
         [HttpGet("{courseId}/exams")]
-        public async Task<ActionResult<Exam>> GetCourseExams(string courseId)
+        public async Task<ActionResult<List<Exam>>> GetCourseExams(string courseId)
         {
             var courseExams = await courseRepository.GetCourseExams(courseId);
 
@@ -28,7 +29,7 @@ namespace Exams_App_C__.Net_Server.Controllers
         }
 
         [HttpGet("{courseId}/course-users")]
-        public async Task<ActionResult<User>> GetCourseUsers(string courseId)
+        public async Task<ActionResult<List<User>>> GetCourseUsers(string courseId)
         {
             var courseTeachers = await courseRepository.GetCourseUsers(courseId);
 
@@ -70,11 +71,7 @@ namespace Exams_App_C__.Net_Server.Controllers
             }
             catch (ArgumentException ex)
             {
-                return BadRequest(ex.Message);
-            }
-            catch (InvalidOperationException ex)
-            {
-                return Conflict(ex.Message);
+                return StatusCode(404, ex.Message); // Return 404 for not found exceptions
             }
             catch (Exception ex)
             {
@@ -82,6 +79,8 @@ namespace Exams_App_C__.Net_Server.Controllers
             }
         }
 
+
+       
     }
 }
 

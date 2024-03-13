@@ -24,7 +24,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     PasswordHash = "password1",
                     FullName = "John Doe",
                     Email = "john.doe@example.com",
-                    UserRole = "Teacher"
+                    UserRole = "Teacher",
+                    CourseId = "c-1"
                 },
                 new User
                 {
@@ -34,7 +35,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     FullName = "Alice Smith",
                     Email = "alice.smith@example.com",
                     UserRole = "Student",
-                    StudentGradeAvg = 0.0f
+                    StudentGradeAvg = 0.0f,
+                    CourseId = "c-1"
                 },
                 new User
                 {
@@ -44,7 +46,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     FullName = "Rifka Smith",
                     Email = "rifka.smith@example.com",
                     UserRole = "Student",
-                    StudentGradeAvg = 0.0f
+                    StudentGradeAvg = 0.0f,
+                    CourseId = "c-1"
                 });
         }
     }

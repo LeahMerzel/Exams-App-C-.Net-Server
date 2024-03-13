@@ -19,7 +19,6 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public string TeacherId { get; set; }
         [ForeignKey("CourseId")]
         public string CourseId { get; set; }
-        public Course Course { get; set; }
         [Required]
         [MaxLength(200)]
         public string? ExamDescription { get; set; }

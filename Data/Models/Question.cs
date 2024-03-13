@@ -10,7 +10,6 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         [Required]
-        [MaxLength(2)]
         public int QuestionNumber { get; set; }
         [Required]
         [MaxLength(2000)]

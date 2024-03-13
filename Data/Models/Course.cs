@@ -21,6 +21,7 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public DateTime CourseStartingDate { get; set; }
         [Required]
         public DateTime CourseEndingDate { get; set; }
+        [JsonIgnore]
         public virtual IList<User>? Users { get; set; }
         public virtual IList<Exam>? Exams { get; set; }
         [ForeignKey("AdminId")]

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Exams_App_C__.Net_Server.Migrations
 {
     /// <inheritdoc />
-    public partial class V1 : Migration
+    public partial class v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,14 +35,14 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserRole = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Token = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StudentGradeAvg = table.Column<float>(type: "real", nullable: false)
+                    StudentGradeAvg = table.Column<float>(type: "real", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -50,24 +50,23 @@ namespace Exams_App_C__.Net_Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CourseUser",
+                name: "CoursesUsers",
                 columns: table => new
                 {
-                    CoursesId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UsersId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    CourseId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CourseUser", x => new { x.CoursesId, x.UsersId });
                     table.ForeignKey(
-                        name: "FK_CourseUser_Courses_CoursesId",
-                        column: x => x.CoursesId,
+                        name: "FK_CoursesUsers_Courses_CourseId",
+                        column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CourseUser_Users_UsersId",
-                        column: x => x.UsersId,
+                        name: "FK_CoursesUsers_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -193,9 +192,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: new[] { "Id", "AdminId", "CourseDescription", "CourseEndingDate", "CourseName", "CourseStartingDate", "CreatedAt" },
                 values: new object[,]
                 {
-                    { "c-1", "a-1", "This course provides an introduction to programming concepts using a variety of languages.", new DateTime(2024, 6, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1811), "Introduction to Programming", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1809), new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1804) },
-                    { "c-2", "a-1", "This course provides an introduction to programming concepts using a variety of languages.", new DateTime(2024, 6, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1820), "Introduction to Programming 2", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1819), new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1817) },
-                    { "c-3", "a-1", "This course provides an introduction to programming concepts using a variety of languages.", new DateTime(2024, 6, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1826), "Introduction to Programming 3", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1825), new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1823) }
+                    { "c-1", "a-1", "This course provides an introduction to programming concepts using a variety of languages.", new DateTime(2024, 6, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2576), "Introduction to Programming", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2574), new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2567) },
+                    { "c-2", "a-1", "This course provides an introduction to programming concepts using a variety of languages.", new DateTime(2024, 6, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2585), "Introduction to Programming 2", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2583), new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2581) },
+                    { "c-3", "a-1", "This course provides an introduction to programming concepts using a variety of languages.", new DateTime(2024, 6, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2590), "Introduction to Programming 3", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2589), new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2587) }
                 });
 
             migrationBuilder.InsertData(
@@ -203,10 +202,10 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: new[] { "Id", "CreatedAt", "Email", "FullName", "PasswordHash", "StudentGradeAvg", "Token", "UserName", "UserRole" },
                 values: new object[,]
                 {
-                    { "a-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1998), "leahwalden4@gmail.com", "The Admin", "adminPassw0rd!", 0f, null, "admin", "Admin" },
-                    { "s-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(2009), "alice.smith@example.com", "Alice Smith", "password1", 0f, null, "student1", "Student" },
-                    { "s-2", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(2012), "rifka.smith@example.com", "Rifka Smith", "password2", 0f, null, "student2", "Student" },
-                    { "t-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(2006), "john.doe@example.com", "John Doe", "password1", 0f, null, "teacher1", "Teacher" }
+                    { "a-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2793), "leahwalden4@gmail.com", "The Admin", "adminPassw0rd!", null, null, "admin", "Admin" },
+                    { "s-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2806), "alice.smith@example.com", "Alice Smith", "password1", 0f, null, "student1", "Student" },
+                    { "s-2", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2810), "rifka.smith@example.com", "Rifka Smith", "password2", 0f, null, "student2", "Student" },
+                    { "t-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2802), "john.doe@example.com", "John Doe", "password1", null, null, "teacher1", "Teacher" }
                 });
 
             migrationBuilder.InsertData(
@@ -214,9 +213,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: new[] { "Id", "CourseId", "CreatedAt", "EndExamDateTime", "ExamDescription", "ExamDurationInMinutes", "ExamGradeAvg", "ExamName", "IsOrderQuestionsRandom", "StartExamDateTime", "TeacherId", "UserId" },
                 values: new object[,]
                 {
-                    { "e-1", "c-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1853), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Description of Midterm Exam", 120, 0f, "Midterm Exam", true, new DateTime(2024, 3, 17, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1857), "t-1", null },
-                    { "e-2", "c-2", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1863), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Description of Final Exam", 180, 0f, "Final Exam", true, new DateTime(2024, 3, 24, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1865), "t-1", null },
-                    { "e-3", "c-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1868), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Description of Quiz 1", 60, 0f, "Quiz 1", false, new DateTime(2024, 3, 31, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1870), "t-1", null }
+                    { "e-1", "c-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2618), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Description of Midterm Exam", 120, 0f, "Midterm Exam", true, new DateTime(2024, 3, 20, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2622), "t-1", null },
+                    { "e-2", "c-2", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2628), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Description of Final Exam", 180, 0f, "Final Exam", true, new DateTime(2024, 3, 27, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2630), "t-1", null },
+                    { "e-3", "c-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2633), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Description of Quiz 1", 60, 0f, "Quiz 1", false, new DateTime(2024, 4, 3, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2635), "t-1", null }
                 });
 
             migrationBuilder.InsertData(
@@ -224,15 +223,15 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: new[] { "Id", "CreatedAt", "ExamId", "IsImage", "IsOrderAnswersRandom", "QuestionDescription", "QuestionNumber", "QuestionScoring", "StudentExamId" },
                 values: new object[,]
                 {
-                    { "q-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1893), "e-1", false, true, "What is the capital of the United Kingdom?", 1, 1, null },
-                    { "q-2", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1899), "e-1", false, true, "What is the capital of Germany?", 2, 1, null },
-                    { "q-3", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1903), "e-1", false, true, "What is the capital of Italy?", 3, 1, null },
-                    { "q-4", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1907), "e-2", false, true, "What is the capital of the United Kingdom?", 1, 1, null },
-                    { "q-5", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1911), "e-2", false, true, "What is the capital of Germany?", 2, 1, null },
-                    { "q-6", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1915), "e-2", false, true, "What is the capital of Italy?", 3, 1, null },
-                    { "q-7", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1922), "e-3", false, true, "What is the largest ocean on Earth?", 1, 1, null },
-                    { "q-8", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1926), "e-3", false, true, "Which planet is known as the Red Planet?", 2, 1, null },
-                    { "q-9", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1930), "e-3", false, true, "What is the chemical symbol for water?", 3, 1, null }
+                    { "q-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2662), "e-1", false, true, "What is the capital of the United Kingdom?", 1, 1, null },
+                    { "q-2", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2667), "e-1", false, true, "What is the capital of Germany?", 2, 1, null },
+                    { "q-3", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2672), "e-1", false, true, "What is the capital of Italy?", 3, 1, null },
+                    { "q-4", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2676), "e-2", false, true, "What is the capital of the United Kingdom?", 1, 1, null },
+                    { "q-5", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2680), "e-2", false, true, "What is the capital of Germany?", 2, 1, null },
+                    { "q-6", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2686), "e-2", false, true, "What is the capital of Italy?", 3, 1, null },
+                    { "q-7", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2690), "e-3", false, true, "What is the largest ocean on Earth?", 1, 1, null },
+                    { "q-8", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2694), "e-3", false, true, "Which planet is known as the Red Planet?", 2, 1, null },
+                    { "q-9", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2698), "e-3", false, true, "What is the chemical symbol for water?", 3, 1, null }
                 });
 
             migrationBuilder.InsertData(
@@ -240,10 +239,10 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: new[] { "Id", "CreatedAt", "ExamId", "ExamStartTime", "Grade", "StudentId", "StudentName", "UserId", "WasExamLoggedInToByStudent" },
                 values: new object[,]
                 {
-                    { "se-1", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1959), "e-1", new DateTime(2024, 3, 10, 14, 2, 23, 932, DateTimeKind.Local).AddTicks(1964), 90, "s-1", "Alice Smith", null, true },
-                    { "se-2", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1967), "e-2", new DateTime(2024, 3, 10, 13, 2, 23, 932, DateTimeKind.Local).AddTicks(1969), 85, "s-2", "Alice Smith", null, true },
-                    { "se-3", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1971), "e-3", new DateTime(2024, 3, 10, 12, 2, 23, 932, DateTimeKind.Local).AddTicks(1973), 95, "s-2", "Rifka Smith", null, true },
-                    { "se-4", new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1975), "e-1", new DateTime(2024, 3, 10, 11, 2, 23, 932, DateTimeKind.Local).AddTicks(1977), 80, "s-2", "Rifka Smith", null, true }
+                    { "se-1", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2727), "e-1", new DateTime(2024, 3, 13, 20, 5, 52, 838, DateTimeKind.Local).AddTicks(2733), 90, "s-1", "Alice Smith", null, true },
+                    { "se-2", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2735), "e-2", new DateTime(2024, 3, 13, 19, 5, 52, 838, DateTimeKind.Local).AddTicks(2738), 85, "s-2", "Alice Smith", null, true },
+                    { "se-3", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2756), "e-3", new DateTime(2024, 3, 13, 18, 5, 52, 838, DateTimeKind.Local).AddTicks(2758), 95, "s-2", "Rifka Smith", null, true },
+                    { "se-4", new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2761), "e-1", new DateTime(2024, 3, 13, 17, 5, 52, 838, DateTimeKind.Local).AddTicks(2763), 80, "s-2", "Rifka Smith", null, true }
                 });
 
             migrationBuilder.InsertData(
@@ -251,18 +250,18 @@ namespace Exams_App_C__.Net_Server.Migrations
                 columns: new[] { "Id", "AnswerDescription", "AnswerNumber", "CreatedAt", "IsCorrect", "QuestionId" },
                 values: new object[,]
                 {
-                    { "a-1", "Paris", 1, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1558), true, "q-1" },
-                    { "a-2", "London", 2, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1615), false, "q-1" },
-                    { "a-21", "Paris", 1, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1624), true, "q-2" },
-                    { "a-22", "London", 2, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1627), false, "q-2" },
-                    { "a-23", "Berlin", 3, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1629), false, "q-2" },
-                    { "a-24", "Rome", 4, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1632), false, "q-2" },
-                    { "a-3", "Berlin", 3, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1618), false, "q-1" },
-                    { "a-31", "Paris", 1, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1637), true, "q-3" },
-                    { "a-32", "London", 2, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1639), false, "q-3" },
-                    { "a-33", "Berlin", 3, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1665), false, "q-3" },
-                    { "a-34", "Rome", 4, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1668), false, "q-3" },
-                    { "a-4", "Rome", 4, new DateTime(2024, 3, 10, 16, 2, 23, 932, DateTimeKind.Local).AddTicks(1621), false, "q-1" }
+                    { "a-1", "Paris", 1, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2306), true, "q-1" },
+                    { "a-2", "London", 2, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2371), false, "q-1" },
+                    { "a-21", "Paris", 1, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2380), true, "q-2" },
+                    { "a-22", "London", 2, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2382), false, "q-2" },
+                    { "a-23", "Berlin", 3, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2385), false, "q-2" },
+                    { "a-24", "Rome", 4, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2409), false, "q-2" },
+                    { "a-3", "Berlin", 3, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2374), false, "q-1" },
+                    { "a-31", "Paris", 1, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2411), true, "q-3" },
+                    { "a-32", "London", 2, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2414), false, "q-3" },
+                    { "a-33", "Berlin", 3, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2416), false, "q-3" },
+                    { "a-34", "Rome", 4, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2419), false, "q-3" },
+                    { "a-4", "Rome", 4, new DateTime(2024, 3, 13, 22, 5, 52, 838, DateTimeKind.Local).AddTicks(2377), false, "q-1" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -271,9 +270,14 @@ namespace Exams_App_C__.Net_Server.Migrations
                 column: "QuestionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CourseUser_UsersId",
-                table: "CourseUser",
-                column: "UsersId");
+                name: "IX_CoursesUsers_CourseId",
+                table: "CoursesUsers",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CoursesUsers_UserId",
+                table: "CoursesUsers",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exams_CourseId",
@@ -313,7 +317,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                 name: "Answers");
 
             migrationBuilder.DropTable(
-                name: "CourseUser");
+                name: "CoursesUsers");
 
             migrationBuilder.DropTable(
                 name: "Questions");

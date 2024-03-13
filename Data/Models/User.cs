@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Exams_App_C__.Net_Server.Data.Models
 {
@@ -16,7 +17,8 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public string? FullName { get; set; }
         public string? UserRole { get; set; }
         public string? Token { get; set; }
-        public virtual IList<Course>? Courses { get; set; } = new List<Course>();
+        [ForeignKey("CourseId")]
+        public string? CourseId {  get; set; }
         public virtual IList<Exam>? TeachersExams { get; set; } = new List<Exam>();
         public virtual IList<StudentExam>? StudentsTakenExams { get; set; } = new List<StudentExam>();
         public float? StudentGradeAvg { get; set; }

@@ -14,19 +14,6 @@ namespace Exams_App_C__.Net_Server.Controllers
             this.userRepository = userRepository;
         }
 
-        [HttpGet("{userId}/user-courses")]
-        public async Task<ActionResult<List<Course>>> GetUserCourses(string studentId)
-        {
-            var studentCourses = await userRepository.GetUserCourses(studentId);
-
-            if (studentCourses == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(studentCourses);
-        }
-
         [HttpGet("{studentId}/submitted-exams")]
         public async Task<ActionResult<List<StudentExam>>> GetStudentSubmittedExams(string studentId)
         {

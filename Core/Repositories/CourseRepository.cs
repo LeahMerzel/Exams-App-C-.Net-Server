@@ -22,9 +22,9 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
         }
         public async Task<List<User>> GetCourseUsers(string courseId)
         {
-            var courseUserList = new List<User>();
-            var course = await dbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
-            courseUserList = course.Users.ToList();
+            var courseUserList = await dbContext.Users
+                                                .Where(u => u.CourseId == courseId)
+                                                .ToListAsync();
             return courseUserList;
         }
 
@@ -47,22 +47,23 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             }
 
             course.Users.Add(user);
+            await dbContext.SaveChangesAsync();
             return course;
         }
 
-        public async Task RemoveUserFromCourse(string courseUserId, string userId)
+        public async Task RemoveUserFromCourse(string courseId, string userId)
         {
             var userToDelete = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (userToDelete == null)
             {
                 throw new ArgumentException("User not found", nameof(userId));
             }
-            var course = await dbContext.Courses.FirstOrDefaultAsync(c => c.Id == userId);
+            var course = await dbContext.Courses.FirstOrDefaultAsync(c => c.Id == courseId);
             if (course == null)
             {
-                throw new ArgumentException("Course not found", nameof(courseUserId));
+                throw new ArgumentException("Course not found", nameof(courseId));
             }
-            if (course.Users.Contains(userToDelete))
+            if (!course.Users.Contains(userToDelete))
             {
                 throw new Exception("User is not assigned to the course");
             }

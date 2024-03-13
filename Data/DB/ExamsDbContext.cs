@@ -19,7 +19,6 @@ namespace Exams_App_C__.Net_Server.Data.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             AnswerSeedData.Seed(modelBuilder);
             CourseSeedData.Seed(modelBuilder);
