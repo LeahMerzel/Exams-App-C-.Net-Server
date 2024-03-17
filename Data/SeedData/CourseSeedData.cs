@@ -14,8 +14,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     CourseName = "Introduction to Programming",
                     CourseDescription = "This course provides an introduction to programming concepts using a variety of languages.",
                     CourseStartingDate = DateTime.Now,
-                    CourseEndingDate = DateTime.Now.AddMonths(3),
-                    AdminId = "a-1"
+                    CourseEndingDate = DateTime.Now.AddMonths(3)
                 },
                 new Course
                 {
@@ -23,8 +22,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     CourseName = "Introduction to Programming 2",
                     CourseDescription = "This course provides an introduction to programming concepts using a variety of languages.",
                     CourseStartingDate = DateTime.Now,
-                    CourseEndingDate = DateTime.Now.AddMonths(3),
-                    AdminId = "a-1"
+                    CourseEndingDate = DateTime.Now.AddMonths(3)
                 },
                 new Course
                 {
@@ -32,8 +30,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     CourseName = "Introduction to Programming 3",
                     CourseDescription = "This course provides an introduction to programming concepts using a variety of languages.",
                     CourseStartingDate = DateTime.Now,
-                    CourseEndingDate = DateTime.Now.AddMonths(3),
-                    AdminId = "a-1"
+                    CourseEndingDate = DateTime.Now.AddMonths(3)
                 }
             );
         }

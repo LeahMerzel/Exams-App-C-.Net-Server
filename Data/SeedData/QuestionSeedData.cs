@@ -17,7 +17,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 1,
             QuestionDescription = "What is the capital of the United Kingdom?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-1"
@@ -28,7 +27,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 2,
             QuestionDescription = "What is the capital of Germany?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-1"
@@ -39,7 +37,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 3,
             QuestionDescription = "What is the capital of Italy?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-1"
@@ -51,7 +48,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 1,
             QuestionDescription = "What is the capital of the United Kingdom?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-2"
@@ -62,7 +58,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 2,
             QuestionDescription = "What is the capital of Germany?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-2"
@@ -73,7 +68,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 3,
             QuestionDescription = "What is the capital of Italy?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-2"
@@ -86,7 +80,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 1,
             QuestionDescription = "What is the largest ocean on Earth?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-3"
@@ -97,7 +90,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 2,
             QuestionDescription = "Which planet is known as the Red Planet?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-3"
@@ -108,7 +100,6 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             CreatedAt = DateTime.Now,
             QuestionNumber = 3,
             QuestionDescription = "What is the chemical symbol for water?",
-            IsImage = false,
             IsOrderAnswersRandom = true,
             QuestionScoring = 1,
             ExamId = "e-3"

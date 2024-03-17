@@ -14,25 +14,23 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         [Required]
         [MaxLength(50)]
-        public string ExamName { get; set; }
+        public string? ExamName { get; set; }
         [ForeignKey("TeacherId")]
-        public string TeacherId { get; set; }
+        public string? TeacherId { get; set; }
         [ForeignKey("CourseId")]
-        public string CourseId { get; set; }
+        public string? CourseId { get; set; }
         [Required]
         [MaxLength(200)]
         public string? ExamDescription { get; set; }
         [Required]
-        public DateTime StartExamDateTime { get; set; }
+        public DateTime? StartExamDateTime { get; set; }
         [Required]
-        public DateTime EndExamDateTime { get; set; }
-        [Required]
-        public bool IsOrderQuestionsRandom { get; set; }
+        public bool? IsOrderQuestionsRandom { get; set; }
         public virtual IList<Question>? ExamQuestions { get; set; } = new List<Question>();
         public virtual IList<StudentExam>? StudentsExams { get; set; } = new List<StudentExam>();
-        public float ExamGradeAvg { get; set; }
+        public float? ExamGradeAvg { get; set; }
         [Required]
-        public int ExamDurationInMinutes { get; set; }
+        public int? ExamDurationInMinutes { get; set; }
 
     }
 }

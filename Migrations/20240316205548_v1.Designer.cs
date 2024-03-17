@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Exams_App_C__.Net_Server.Migrations
 {
     [DbContext(typeof(ExamsDbContext))]
-    [Migration("20240313211646_v9")]
-    partial class v9
+    [Migration("20240316205548_v1")]
+    partial class v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,7 +60,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-61",
                             AnswerDescription = "Paris",
                             AnswerNumber = 1,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3599),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7534),
                             IsCorrect = true,
                             QuestionId = "q-1"
                         },
@@ -69,7 +69,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-2",
                             AnswerDescription = "London",
                             AnswerNumber = 2,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3665),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7599),
                             IsCorrect = false,
                             QuestionId = "q-1"
                         },
@@ -78,7 +78,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-3",
                             AnswerDescription = "Berlin",
                             AnswerNumber = 3,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3668),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7618),
                             IsCorrect = false,
                             QuestionId = "q-1"
                         },
@@ -87,7 +87,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-4",
                             AnswerDescription = "Rome",
                             AnswerNumber = 4,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3679),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7622),
                             IsCorrect = false,
                             QuestionId = "q-1"
                         },
@@ -96,7 +96,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-21",
                             AnswerDescription = "Paris",
                             AnswerNumber = 1,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3682),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7625),
                             IsCorrect = true,
                             QuestionId = "q-2"
                         },
@@ -105,7 +105,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-22",
                             AnswerDescription = "London",
                             AnswerNumber = 2,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3686),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7629),
                             IsCorrect = false,
                             QuestionId = "q-2"
                         },
@@ -114,7 +114,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-23",
                             AnswerDescription = "Berlin",
                             AnswerNumber = 3,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3689),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7632),
                             IsCorrect = false,
                             QuestionId = "q-2"
                         },
@@ -123,7 +123,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-24",
                             AnswerDescription = "Rome",
                             AnswerNumber = 4,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3692),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7635),
                             IsCorrect = false,
                             QuestionId = "q-2"
                         },
@@ -132,7 +132,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-31",
                             AnswerDescription = "Paris",
                             AnswerNumber = 1,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3695),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7638),
                             IsCorrect = true,
                             QuestionId = "q-3"
                         },
@@ -141,7 +141,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-32",
                             AnswerDescription = "London",
                             AnswerNumber = 2,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3698),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7642),
                             IsCorrect = false,
                             QuestionId = "q-3"
                         },
@@ -150,7 +150,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-33",
                             AnswerDescription = "Berlin",
                             AnswerNumber = 3,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3728),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7648),
                             IsCorrect = false,
                             QuestionId = "q-3"
                         },
@@ -159,7 +159,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                             Id = "a-34",
                             AnswerDescription = "Rome",
                             AnswerNumber = 4,
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3734),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7652),
                             IsCorrect = false,
                             QuestionId = "q-3"
                         });
@@ -169,10 +169,6 @@ namespace Exams_App_C__.Net_Server.Migrations
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("AdminId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CourseDescription")
                         .IsRequired()
@@ -201,32 +197,29 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "c-1",
-                            AdminId = "a-1",
                             CourseDescription = "This course provides an introduction to programming concepts using a variety of languages.",
-                            CourseEndingDate = new DateTime(2024, 6, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3874),
+                            CourseEndingDate = new DateTime(2024, 6, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7813),
                             CourseName = "Introduction to Programming",
-                            CourseStartingDate = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3873),
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3868)
+                            CourseStartingDate = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7811),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7804)
                         },
                         new
                         {
                             Id = "c-2",
-                            AdminId = "a-1",
                             CourseDescription = "This course provides an introduction to programming concepts using a variety of languages.",
-                            CourseEndingDate = new DateTime(2024, 6, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3884),
+                            CourseEndingDate = new DateTime(2024, 6, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7823),
                             CourseName = "Introduction to Programming 2",
-                            CourseStartingDate = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3882),
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3881)
+                            CourseStartingDate = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7822),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7820)
                         },
                         new
                         {
                             Id = "c-3",
-                            AdminId = "a-1",
                             CourseDescription = "This course provides an introduction to programming concepts using a variety of languages.",
-                            CourseEndingDate = new DateTime(2024, 6, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3890),
+                            CourseEndingDate = new DateTime(2024, 6, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7829),
                             CourseName = "Introduction to Programming 3",
-                            CourseStartingDate = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3889),
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3887)
+                            CourseStartingDate = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7828),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7826)
                         });
                 });
 
@@ -236,13 +229,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CourseId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("EndExamDateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ExamDescription")
@@ -250,10 +239,11 @@ namespace Exams_App_C__.Net_Server.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("ExamDurationInMinutes")
+                    b.Property<int?>("ExamDurationInMinutes")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<float>("ExamGradeAvg")
+                    b.Property<float?>("ExamGradeAvg")
                         .HasColumnType("real");
 
                     b.Property<string>("ExamName")
@@ -261,14 +251,15 @@ namespace Exams_App_C__.Net_Server.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<bool>("IsOrderQuestionsRandom")
+                    b.Property<bool?>("IsOrderQuestionsRandom")
+                        .IsRequired()
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("StartExamDateTime")
+                    b.Property<DateTime?>("StartExamDateTime")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TeacherId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -287,42 +278,39 @@ namespace Exams_App_C__.Net_Server.Migrations
                         {
                             Id = "e-1",
                             CourseId = "c-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3913),
-                            EndExamDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7890),
                             ExamDescription = "Description of Midterm Exam",
                             ExamDurationInMinutes = 120,
                             ExamGradeAvg = 0f,
                             ExamName = "Midterm Exam",
                             IsOrderQuestionsRandom = true,
-                            StartExamDateTime = new DateTime(2024, 3, 20, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3921),
+                            StartExamDateTime = new DateTime(2024, 3, 23, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7897),
                             TeacherId = "t-1"
                         },
                         new
                         {
                             Id = "e-2",
                             CourseId = "c-2",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3927),
-                            EndExamDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7906),
                             ExamDescription = "Description of Final Exam",
                             ExamDurationInMinutes = 180,
                             ExamGradeAvg = 0f,
                             ExamName = "Final Exam",
                             IsOrderQuestionsRandom = true,
-                            StartExamDateTime = new DateTime(2024, 3, 27, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3929),
+                            StartExamDateTime = new DateTime(2024, 3, 30, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7908),
                             TeacherId = "t-1"
                         },
                         new
                         {
                             Id = "e-3",
                             CourseId = "c-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3932),
-                            EndExamDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7912),
                             ExamDescription = "Description of Quiz 1",
                             ExamDurationInMinutes = 60,
                             ExamGradeAvg = 0f,
                             ExamName = "Quiz 1",
                             IsOrderQuestionsRandom = false,
-                            StartExamDateTime = new DateTime(2024, 4, 3, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3934),
+                            StartExamDateTime = new DateTime(2024, 4, 6, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7915),
                             TeacherId = "t-1"
                         });
                 });
@@ -372,7 +360,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3961),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7947),
                             ExamId = "e-1",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -383,7 +371,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-2",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3970),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7952),
                             ExamId = "e-1",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -394,7 +382,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-3",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3974),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7958),
                             ExamId = "e-1",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -405,7 +393,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-4",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3979),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7962),
                             ExamId = "e-2",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -416,7 +404,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-5",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3983),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7989),
                             ExamId = "e-2",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -427,7 +415,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-6",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3987),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(7995),
                             ExamId = "e-2",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -438,7 +426,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-7",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3991),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8000),
                             ExamId = "e-3",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -449,7 +437,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-8",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3995),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8005),
                             ExamId = "e-3",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -460,7 +448,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "q-9",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(3999),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8013),
                             ExamId = "e-3",
                             IsImage = false,
                             IsOrderAnswersRandom = true,
@@ -515,9 +503,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "se-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4026),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8050),
                             ExamId = "e-1",
-                            ExamStartTime = new DateTime(2024, 3, 13, 21, 16, 45, 708, DateTimeKind.Local).AddTicks(4032),
+                            ExamStartTime = new DateTime(2024, 3, 16, 20, 55, 47, 694, DateTimeKind.Local).AddTicks(8057),
                             Grade = 90,
                             StudentId = "s-1",
                             StudentName = "Alice Smith",
@@ -526,9 +514,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "se-2",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4035),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8060),
                             ExamId = "e-2",
-                            ExamStartTime = new DateTime(2024, 3, 13, 20, 16, 45, 708, DateTimeKind.Local).AddTicks(4037),
+                            ExamStartTime = new DateTime(2024, 3, 16, 19, 55, 47, 694, DateTimeKind.Local).AddTicks(8062),
                             Grade = 85,
                             StudentId = "s-2",
                             StudentName = "Alice Smith",
@@ -537,9 +525,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "se-3",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4039),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8065),
                             ExamId = "e-3",
-                            ExamStartTime = new DateTime(2024, 3, 13, 19, 16, 45, 708, DateTimeKind.Local).AddTicks(4041),
+                            ExamStartTime = new DateTime(2024, 3, 16, 18, 55, 47, 694, DateTimeKind.Local).AddTicks(8068),
                             Grade = 95,
                             StudentId = "s-2",
                             StudentName = "Rifka Smith",
@@ -548,9 +536,9 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "se-4",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4043),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8071),
                             ExamId = "e-1",
-                            ExamStartTime = new DateTime(2024, 3, 13, 18, 16, 45, 708, DateTimeKind.Local).AddTicks(4045),
+                            ExamStartTime = new DateTime(2024, 3, 16, 17, 55, 47, 694, DateTimeKind.Local).AddTicks(8073),
                             Grade = 80,
                             StudentId = "s-2",
                             StudentName = "Rifka Smith",
@@ -600,7 +588,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         new
                         {
                             Id = "a-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4070),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8101),
                             Email = "leahwalden4@gmail.com",
                             FullName = "The Admin",
                             PasswordHash = "adminPassw0rd!",
@@ -611,7 +599,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         {
                             Id = "t-1",
                             CourseId = "c-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4083),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8107),
                             Email = "john.doe@example.com",
                             FullName = "John Doe",
                             PasswordHash = "password1",
@@ -622,7 +610,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         {
                             Id = "s-1",
                             CourseId = "c-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4086),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8111),
                             Email = "alice.smith@example.com",
                             FullName = "Alice Smith",
                             PasswordHash = "password1",
@@ -634,7 +622,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                         {
                             Id = "s-2",
                             CourseId = "c-1",
-                            CreatedAt = new DateTime(2024, 3, 13, 23, 16, 45, 708, DateTimeKind.Local).AddTicks(4090),
+                            CreatedAt = new DateTime(2024, 3, 16, 22, 55, 47, 694, DateTimeKind.Local).AddTicks(8118),
                             Email = "rifka.smith@example.com",
                             FullName = "Rifka Smith",
                             PasswordHash = "password2",
@@ -657,9 +645,7 @@ namespace Exams_App_C__.Net_Server.Migrations
                 {
                     b.HasOne("Exams_App_C__.Net_Server.Data.Models.Course", null)
                         .WithMany("Exams")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CourseId");
 
                     b.HasOne("Exams_App_C__.Net_Server.Data.Models.User", null)
                         .WithMany("TeachersExams")

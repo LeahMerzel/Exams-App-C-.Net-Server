@@ -14,12 +14,10 @@ namespace Exams_App_C__.Net_Server.Data.Models
         [Required]
         [MaxLength(2000)]
         public string? QuestionDescription { get; set; }
-        public bool IsImage { get; set; }
         public virtual IList<Answer>? Answers { get; set; } = new List<Answer>();
         [Required]
         public bool IsOrderAnswersRandom { get; set; }
         [Required]
-        [MaxLength(3)]
         public int QuestionScoring { get; set; }
         [ForeignKey("ExamId")]
         public string ExamId { get; set; }

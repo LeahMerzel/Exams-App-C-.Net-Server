@@ -15,8 +15,8 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
         public async Task<List<Exam>> GetCourseExams(string courseId)
         {
             var courseExamsList = await dbContext.Exams
-                                      .Where(e => e.Id == courseId)
-                                      .ToListAsync();
+                                        .Where(e => e.CourseId == courseId)
+                                        .ToListAsync();
 
             return courseExamsList;
         }
