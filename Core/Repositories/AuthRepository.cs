@@ -22,13 +22,7 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
                 return null;
             }
 
-            _user.Token = await GenerateToken();
             return _user;
-        }
-        private async Task<string> GenerateToken()
-        {
-            var token = Guid.NewGuid().ToString();
-            return token;
         }
 
         public async Task<int> RegisterAsync(User registerUser)

@@ -14,9 +14,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                    StudentName = "Alice Smith",
                    Grade = 90,
                    StudentId = "s-1",
-                   ExamId = "e-1",
-                   ExamStartTime = DateTime.Now.AddHours(-2),
-                   WasExamLoggedInToByStudent = true
+                   ExamId = "e-1"
                },
                 new StudentExam
                 {
@@ -24,9 +22,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     StudentName = "Alice Smith",
                     Grade = 85,
                     StudentId = "s-2",
-                    ExamId = "e-2",
-                    ExamStartTime = DateTime.Now.AddHours(-3),
-                    WasExamLoggedInToByStudent = true
+                    ExamId = "e-2"
                 },
                 new StudentExam
                 {
@@ -34,9 +30,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     StudentName = "Rifka Smith",
                     Grade = 95,
                     StudentId = "s-2",
-                    ExamId = "e-3",
-                    ExamStartTime = DateTime.Now.AddHours(-4),
-                    WasExamLoggedInToByStudent = true
+                    ExamId = "e-3"
                 },
                 new StudentExam
                 {
@@ -44,9 +38,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     StudentName = "Rifka Smith",
                     Grade = 80,
                     StudentId = "s-2",
-                    ExamId = "e-1",
-                    ExamStartTime = DateTime.Now.AddHours(-5),
-                    WasExamLoggedInToByStudent = true
+                    ExamId = "e-1"
                 }
             );
         }

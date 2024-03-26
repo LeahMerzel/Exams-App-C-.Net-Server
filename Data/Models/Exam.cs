@@ -16,6 +16,7 @@ namespace Exams_App_C__.Net_Server.Data.Models
         [MaxLength(50)]
         public string? ExamName { get; set; }
         [ForeignKey("TeacherId")]
+        public string? TeacherName { get; set; }
         public string? TeacherId { get; set; }
         [ForeignKey("CourseId")]
         public string? CourseId { get; set; }

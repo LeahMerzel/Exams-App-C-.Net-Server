@@ -12,24 +12,27 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
         public CourseRepository(ExamsDbContext dbContext) : base(dbContext)
         {
         }
-        public async Task<List<Exam>> GetCourseExams(string courseId)
+        public async Task<List<Exam>?> GetCourseExams(string courseId)
         {
+            if (courseId == null) { return null; }
             var courseExamsList = await dbContext.Exams
                                         .Where(e => e.CourseId == courseId)
                                         .ToListAsync();
 
             return courseExamsList;
         }
-        public async Task<List<User>> GetCourseUsers(string courseId)
+        public async Task<List<User>?> GetCourseUsers(string courseId)
         {
+            if (courseId == null) { return null; }
             var courseUserList = await dbContext.Users
                                                 .Where(u => u.CourseId == courseId)
                                                 .ToListAsync();
             return courseUserList;
         }
 
-        public async Task<Course> AddUserToCourse(string courseId, string userId)
+        public async Task<Course?> AddUserToCourse(string courseId, string userId)
         {
+            if (courseId == null || userId == null) { return null; }
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (user == null)
             {
@@ -53,6 +56,7 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
 
         public async Task RemoveUserFromCourse(string courseId, string userId)
         {
+            if (courseId == null || userId == null) { return; }
             var userToDelete = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
             if (userToDelete == null)
             {
