@@ -36,16 +36,16 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             var examGrades = await dbContext.StudentsExams
                 .Where(s => s.ExamId == examId)
                 .Select(s => s.Grade)
-                .ToListAsync(); 
+                .ToListAsync();
 
-            if (examGrades.Any()) 
+            if (examGrades.Any())
             {
-                double? averageGrade = examGrades.Average(); 
+                double? averageGrade = examGrades.Average();
                 return (int?)averageGrade;
             }
             else
             {
-                return null; 
+                return null;
             }
         }
 
@@ -56,8 +56,8 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             try
             {
                 var exam = await dbContext.Exams
-                    .Include(e => e.ExamQuestions) 
-                    .ThenInclude(q => q.Answers) 
+                    .Include(e => e.ExamQuestions)
+                    .ThenInclude(q => q.Answers)
                     .FirstOrDefaultAsync(e => e.Id == examId);
 
                 return exam;
@@ -68,6 +68,59 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
                 throw;
             }
         }
+
+        public async Task<Exam?> UpdateExamWithQuestionsAndAnswersAsync(Exam exam)
+        {
+            try
+            {
+                // Update the exam entity
+                dbContext.Entry(exam).State = EntityState.Modified;
+
+                // Iterate over each exam question
+                foreach (var question in exam.ExamQuestions)
+                {
+                    dbContext.Entry(question).State = EntityState.Modified;
+
+                    foreach (var answer in question.Answers)
+                    {
+                        dbContext.Entry(answer).State = EntityState.Modified;
+                    }
+                }
+
+                await dbContext.SaveChangesAsync();
+
+                return exam;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating exam with questions and answers: {ex.Message}");
+                throw;
+            }
+        }
+
+        public async Task<bool> DeleteExamWithQuestionsAndAnswersAsync(string examId)
+        {
+            try
+            {
+                var exam = await dbContext.Exams
+                    .Include(e => e.ExamQuestions)
+                    .ThenInclude(q => q.Answers)
+                    .FirstOrDefaultAsync(e => e.Id == examId);
+
+                if (exam == null)
+                    return false;
+
+                dbContext.Exams.Remove(exam);
+                await dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting exam with questions and answers: {ex.Message}");
+                throw;
+            }
+        }
+
 
         public async Task SaveExamToFileAsync(Exam exam, string filePath)
         {

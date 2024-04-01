@@ -14,7 +14,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                    StudentName = "Alice Smith",
                    Grade = 90,
                    StudentId = "s-1",
-                   ExamId = "e-1"
+                   ExamId = "e-1",
+                   WasExamLoggedInToByStudent = true
                },
                 new StudentExam
                 {
@@ -22,7 +23,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     StudentName = "Alice Smith",
                     Grade = 85,
                     StudentId = "s-2",
-                    ExamId = "e-2"
+                    ExamId = "e-2",
+                    WasExamLoggedInToByStudent = true
                 },
                 new StudentExam
                 {
@@ -30,7 +32,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     StudentName = "Rifka Smith",
                     Grade = 95,
                     StudentId = "s-2",
-                    ExamId = "e-3"
+                    ExamId = "e-3",
+                    WasExamLoggedInToByStudent = true
                 },
                 new StudentExam
                 {
@@ -38,7 +41,8 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                     StudentName = "Rifka Smith",
                     Grade = 80,
                     StudentId = "s-2",
-                    ExamId = "e-1"
+                    ExamId = "e-1",
+                    WasExamLoggedInToByStudent = true
                 }
             );
         }

@@ -16,6 +16,8 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             if (teacherId == null) { return null; }
             var teacherExams = await dbContext.Exams
                            .Where(e => e.TeacherId == teacherId)
+                           .Include(e => e.ExamQuestions)
+                           .ThenInclude(q => q.Answers)
                            .ToListAsync();
 
             return teacherExams;

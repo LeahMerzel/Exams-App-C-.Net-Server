@@ -10,7 +10,7 @@ namespace Exams_App_C__.Net_Server.Controllers
     public class ExamController : GenericController<Exam>
     {
         private readonly ExamRepository examRepository;
-        public ExamController(ExamRepository examRepository) :base(examRepository) 
+        public ExamController(ExamRepository examRepository) : base(examRepository)
         {
             this.examRepository = examRepository;
         }
@@ -52,7 +52,7 @@ namespace Exams_App_C__.Net_Server.Controllers
 
             if (averageGrade.HasValue)
             {
-                return Ok(averageGrade); 
+                return Ok(averageGrade);
             }
             else
             {
@@ -60,7 +60,7 @@ namespace Exams_App_C__.Net_Server.Controllers
             }
         }
 
-        [HttpGet("{examId}/questions-answers")]
+        [HttpGet("{examId}/exam-questions-answers")]
         public async Task<ActionResult<Exam>> GetExamWithQuestionsAndAnswers(string examId)
         {
             try
@@ -77,6 +77,32 @@ namespace Exams_App_C__.Net_Server.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpPut("update-exam-questions-answers")]
+        public async Task<IActionResult> UpdateEntireExam(Exam exam)
+        {
+            try
+            {
+                await examRepository.UpdateExamWithQuestionsAndAnswersAsync(exam);
+                return Ok("Entore exam updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
+        [HttpDelete("delete-exam-questions-answers-{id}")]
+        public async Task<IActionResult> DeleteEntireExam(string id)
+        {
+            if (id != null)
+            {
+                await examRepository.DeleteExamWithQuestionsAndAnswersAsync(id);
+                return Ok();
+            }
+            else return NotFound();
+        }
+
 
         [HttpPost("saveToFile")]
         public async Task<IActionResult> SaveExamToFileAsync([FromBody] Exam exam, string filePath)

@@ -9,14 +9,13 @@ namespace Exams_App_C__.Net_Server.Data.Models
 {
     public class User
     {
-        public string? Id { get; set; } = Guid.NewGuid().ToString();
-        public DateTime? CreatedAt { get; set; } = DateTime.Now;
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public string? UserName { get; set; }
-        public string? PasswordHash { get; set; }
-        public string? Email { get; set; }
+        public string PasswordHash { get; set; }
+        public string Email { get; set; }
         public string? FullName { get; set; }
         public string? UserRole { get; set; }
-        public string? Token { get; set; }
         [ForeignKey("CourseId")]
         public string? CourseId {  get; set; }
         public virtual IList<Exam>? TeachersExams { get; set; } = new List<Exam>();

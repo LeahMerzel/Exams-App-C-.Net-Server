@@ -7,20 +7,18 @@ namespace Exams_App_C__.Net_Server.Data.Models
     public class Question
     {
         [Key]
-        public string? Id { get; set; } = Guid.NewGuid().ToString();
-        public DateTime? CreatedAt { get; set; } = DateTime.Now;
-        [Required]
-        public int? QuestionNumber { get; set; }
-        [Required]
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public int QuestionNumber { get; set; }
         [MaxLength(2000)]
-        public string? QuestionDescription { get; set; }
+        public string QuestionDescription { get; set; }
+        public bool? IsImage { get; set; }
         public virtual IList<Answer>? Answers { get; set; } = new List<Answer>();
         public string? CorrectAnswerDescription { get; set; }
         public bool? IsOrderAnswersRandom { get; set; }
-        [Required]
-        public int? QuestionScoring { get; set; }
+        public int QuestionScoring { get; set; }
         [ForeignKey("ExamId")]
-        public string? ExamId { get; set; }
+        public string ExamId { get; set; }
 
     }
         

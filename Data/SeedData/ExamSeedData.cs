@@ -11,6 +11,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             {
                 Id = "e-1",
                 ExamName = "Midterm Exam",
+                TeacherName = "John Doe",
                 TeacherId = "t-1",
                 CourseId = "c-1",
                 ExamDescription = "Description of Midterm Exam",
@@ -23,6 +24,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             {
                 Id = "e-2",
                 ExamName = "Final Exam",
+                TeacherName = "John Doe",
                 TeacherId = "t-1",
                 CourseId = "c-2",
                 ExamDescription = "Description of Final Exam",
@@ -35,6 +37,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             {
                 Id = "e-3",
                 ExamName = "Quiz 1",
+                TeacherName = "John Doe",
                 TeacherId = "t-1",
                 CourseId = "c-1",
                 ExamDescription = "Description of Quiz 1",

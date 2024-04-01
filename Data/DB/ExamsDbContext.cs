@@ -16,7 +16,7 @@ namespace Exams_App_C__.Net_Server.Data.DB
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentExam> StudentsExams { get; set; }
-
+        public DbSet<QuestionFailed> QuestionsFailed { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

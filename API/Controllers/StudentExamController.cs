@@ -17,14 +17,14 @@ public class StudentExamController : GenericController<StudentExam>
     }
 
     [HttpPost("push-to-questions-failed/{studentExamId}")]
-    public async Task<IActionResult> PushToQuestionsFailed(string studentExamId, [FromBody] IList<Question> questions)
+    public async Task<IActionResult> PushToQuestionsFailed(string studentExamId, [FromBody]List<QuestionFailed> questionsFailed)
     {
-        if (string.IsNullOrEmpty(studentExamId) || questions == null)
+        if (string.IsNullOrEmpty(studentExamId) || questionsFailed == null)
         {
             return BadRequest("Invalid studentExamId or questions");
         }
 
-        var result = await studentExamRepository.PushToQuestionsFailed(studentExamId, questions);
+        var result = await studentExamRepository.PushToQuestionsFailed(studentExamId, questionsFailed);
 
         if (result == 1)
         {
@@ -36,8 +36,9 @@ public class StudentExamController : GenericController<StudentExam>
         }
     }
 
+
     [HttpGet("questions-failed/{studentExamId}")]
-    public async Task<ActionResult<List<Question>>> GetQuestionsFailed(string studentExamId)
+    public async Task<ActionResult<List<QuestionFailed>>> GetQuestionsFailed(string studentExamId)
     {
         var questionsFailed = await studentExamRepository.GetQuestionFailedListAsync(studentExamId);
         if (questionsFailed == null) { return NotFound(); }

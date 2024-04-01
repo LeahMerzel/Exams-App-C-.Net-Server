@@ -28,7 +28,7 @@ public class GenericController<T> : ControllerBase, IGenericController<T>
         }
     }
 
-    [HttpGet("get-by-id/{Id}")]
+    [HttpGet("get-by-id/{id}")]
     public async Task<ActionResult<T>> GetById(string id)
     {
         var entity = await repository.GetAsync(id);

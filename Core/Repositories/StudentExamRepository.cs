@@ -12,27 +12,24 @@ namespace Exams_App_C__.Net_Server.Repositories
         }
 
 
-        public async Task<int> PushToQuestionsFailed(string studentExamId, IList<Question> failedQuestions)
+        public async Task<int> PushToQuestionsFailed(string studentExamId, List<QuestionFailed> failedQuestions)
         {
             if (studentExamId == null || failedQuestions == null) { return 0; }
             var studentExam = await dbContext.StudentsExams.SingleOrDefaultAsync(se => se.Id == studentExamId);
             if (studentExam == null) { return 0; }
-            foreach (var question in failedQuestions)
-            {
-                studentExam.QuestionsFailed.Add(question);
-            }
+            foreach (var questionFailed in failedQuestions)
+            studentExam.QuestionsFailed.Add(questionFailed);
             await dbContext.SaveChangesAsync();
             return 1;
         }
-        public async Task<List<Question>?> GetQuestionFailedListAsync(string studentExamId)
+        public async Task<List<QuestionFailed>> GetQuestionFailedListAsync(string studentExamId)
         {
             if (studentExamId == null) { return null; }
-            var questionFailedList = await dbContext.StudentsExams
-                           .Where(se => se.Id == studentExamId)
-                           .SelectMany(se => se.QuestionsFailed)
-                           .ToListAsync();
 
-            return questionFailedList;
+            var questionFailed = await dbContext.QuestionsFailed
+                                       .Where(qf => qf.StudentExamId == studentExamId)
+                                       .ToListAsync();
+            return questionFailed;
         }
     }
 }

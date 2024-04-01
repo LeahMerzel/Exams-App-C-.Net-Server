@@ -22,12 +22,7 @@ namespace Exams_App_C__.Net_Server.Repositories
 
         public virtual async Task<T> GetAsync(string? id)
         {
-            if (id == null)
-            {
-                return null;
-            }
-
-            return await dbContext.Set<T>().FindAsync(id);
+            return (id is not null ? await dbContext.Set<T>().FindAsync(id) : null)!;
         }
 
         // POST
