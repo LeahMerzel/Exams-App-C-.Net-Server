@@ -22,14 +22,5 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public virtual IList<StudentExam>? StudentsTakenExams { get; set; } = new List<StudentExam>();
         public float? StudentGradeAvg { get; set; }
 
-        public void HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                PasswordHash = Convert.ToBase64String(hashedBytes);
-            }
-        }
-
     }
 }

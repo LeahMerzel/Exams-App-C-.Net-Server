@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Exams_App_C__.Net_Server.Core.Interfaces;
 using Exams_App_C__.Net_Server.Repositories;
 using Exams_App_C__.Net_Server.Data.Models;
+using BCrypt.Net;
 
 namespace Exams_App_C__.Net_Server.Core.Repositories
 {
@@ -15,16 +16,23 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
 
         public async Task<User?> LoginAsync(User userLogin)
         {
-            _user = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == userLogin.Email && u.PasswordHash == userLogin.PasswordHash);
+            _user = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == userLogin.Email);
 
             if (_user == null)
             {
-                return null;
+                return null; // User not found
             }
 
-            return _user;
+            // Verify the password
+            if (BCrypt.Net.BCrypt.Verify(userLogin.PasswordHash, _user.PasswordHash))
+            {
+                return _user; // Password matches, return user
+            }
+            else
+            {
+                return null; // Password doesn't match
+            }
         }
-
         public async Task<int> RegisterAsync(User registerUser)
         {
             if (string.IsNullOrEmpty(registerUser.UserName) ||
@@ -36,7 +44,9 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
                 return 0;
             }
 
-            var isUserEmailExists = dbContext.Users.FirstOrDefault(u => u.Email == registerUser.Email);
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(registerUser.PasswordHash);
+
+            var isUserEmailExists = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == registerUser.Email);
             if (isUserEmailExists != null)
             {
                 return 0;
@@ -47,7 +57,7 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
                 UserName = registerUser.UserName,
                 FullName = registerUser.FullName,
                 Email = registerUser.Email,
-                PasswordHash = registerUser.PasswordHash,
+                PasswordHash = hashedPassword,
                 UserRole = registerUser.UserRole
             };
 
@@ -57,10 +67,9 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
 
             return 1;
         }
-
         public async Task<bool> UpdateUserAsync(User user)
         {
-            _user = await dbContext.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+            _user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
 
             if (_user == null)
             {
@@ -87,6 +96,7 @@ namespace Exams_App_C__.Net_Server.Core.Repositories
             _user.Email = user.Email;
             _user.FullName = user.FullName;
             _user.PasswordHash = user.PasswordHash;
+            _user.UserRole = user.UserRole;
         }
 
         public async Task<User?> GetUser(string UserId)

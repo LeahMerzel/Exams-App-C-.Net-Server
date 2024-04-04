@@ -12,7 +12,11 @@ namespace Exams_App_C__.Net_Server.Data.Models
         public int QuestionNumber { get; set; }
         [MaxLength(2000)]
         public string QuestionDescription { get; set; }
-        public bool? IsImage { get; set; }
+        public byte[]? ImageData { get; set; }
+        public string? ContentType { get; set; }
+
+        [MaxLength(300)] 
+        public string? ImageUrl { get; set; }
         public virtual IList<Answer>? Answers { get; set; } = new List<Answer>();
         public string? CorrectAnswerDescription { get; set; }
         public bool? IsOrderAnswersRandom { get; set; }

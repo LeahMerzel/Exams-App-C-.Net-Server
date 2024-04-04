@@ -1,5 +1,6 @@
 ﻿using Exams_App_C__.Net_Server.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using BCrypt.Net;
 
 namespace Exams_App_C__.Net_Server.Data.SeedData
 {
@@ -10,9 +11,9 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
-                    Id= "a-1",
+                    Id = "a-1",
                     UserName = "admin",
-                    PasswordHash = "adminPassw0rd!",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("adminPassw0rd!"),
                     FullName = "The Admin",
                     Email = "leahwalden4@gmail.com",
                     UserRole = "Admin"
@@ -21,7 +22,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                 {
                     Id = "t-1",
                     UserName = "teacher1",
-                    PasswordHash = "password1",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password1"),
                     FullName = "John Doe",
                     Email = "john.doe@example.com",
                     UserRole = "Teacher",
@@ -31,7 +32,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                 {
                     Id = "s-1",
                     UserName = "student1",
-                    PasswordHash = "password1",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password1"),
                     FullName = "Alice Smith",
                     Email = "alice.smith@example.com",
                     UserRole = "Student",
@@ -42,7 +43,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                 {
                     Id = "s-2",
                     UserName = "student2",
-                    PasswordHash = "password2",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("password2"),
                     FullName = "Rifka Smith",
                     Email = "rifka.smith@example.com",
                     UserRole = "Student",
