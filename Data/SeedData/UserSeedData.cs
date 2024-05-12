@@ -13,7 +13,7 @@ namespace Exams_App_C__.Net_Server.Data.SeedData
                 {
                     Id = "a-1",
                     UserName = "admin",
-                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("adminPassw0rd!"),
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("adminPassw0rd1"),
                     FullName = "The Admin",
                     Email = "leahwalden4@gmail.com",
                     UserRole = "Admin"
